@@ -36,7 +36,8 @@ const server = http.createServer(function(req, res) {
 	console.log("Request received on path: ", trimmedPath, "with method:" , method, "\
 		and with these query string parameters", queryStringObject, "\n");
 
-	console.log("parsedUrl:",queryStringObject);
+	console.log("req:",req);
+	console.log("queryStringObject:",queryStringObject);
 	console.log("parsedUrl:",parsedUrl);
 });
 
