@@ -14,7 +14,7 @@ const url = require('url');
 // The server should response to all requests with a string
 const server = http.createServer(function(req, res) {
 	// Get the URL and parse it
-	let parsedUrl = url.parse(req.url,true);
+	let parsedUrl = url.parse(req.url, true);
 	
 	// Get the path
 	let path = parsedUrl.pathname;
@@ -24,13 +24,13 @@ const server = http.createServer(function(req, res) {
 	let method = req.method.toUpperCase();
 
 	// Get the query strings as an object
-	let queryStringObject = parsedUrl.query;
+	let queryStringObject = parsedUrl;
 
 	// Send the response
 	res.end("Hello World\n");
 
 	// Log the request path
-	console.log("Request received on path:", trimmedPath, "with method:" , method, "\
+	console.log("Request received on path: ", trimmedPath, "with method:" , method, "\
 		and with these query string parameters", queryStringObject);
 });
 
@@ -43,4 +43,4 @@ server.listen(3000, function() {
 // cd ./Apps 01 -- RESTful API
 // node 06 querystrings.js
 // http://45.77.41.41:3000/path
-// curl localhost:3000/path
+// curl localhost:3000/path?fizz=buzz
