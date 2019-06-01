@@ -24,7 +24,7 @@ const server = http.createServer(function(req, res) {
 	let method = req.method.toUpperCase();
 
 	// Get the query strings as an object
-	let queryStringObject = parsedUrl.query;
+	let queryStringObjects = parsedUrl.query;
 
 	// Send the response
 	res.end("Hello World\n");
@@ -33,7 +33,7 @@ const server = http.createServer(function(req, res) {
 	console.log("Request received on path: ", trimmedPath, "with method:" , method, "\
 		and with these query string parameters", queryStringObject, "\n");
 
-	console.log("parsedUrl:",queryStringObject[1]);
+	console.log("parsedUrl:",queryStringObjects);
 	console.log("parsedUrl:",parsedUrl);
 });
 
