@@ -30,8 +30,8 @@ const server = http.createServer(function(req, res) {
 	res.end("Hello World\n");
 
 	// Log the request path
-	console.log("Request received on path:", trimmedPath, "with method:", method, \
-		"and with these query string parameters", queryStringObject);
+	console.log("Request received on path:", trimmedPath, "with method:" , method, "\
+		and with these query string parameters", queryStringObject);
 });
 
 // Start the server, and have it listen on port 3000
