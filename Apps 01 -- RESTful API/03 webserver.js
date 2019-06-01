@@ -1,12 +1,16 @@
 /*
-02 webserver.js
-Module 02 Starting a Server
+03 webserver.js
+Module 0103 Starting a Server
 
 Author: Yugo Gautomo
 Date: May 01, 2019
 */
 
-// depedencies
+Author: Yugo Gautomo
+Date: May 01, 2019
+*/
+
+// dependencies
 const http = require('http');
 
 // The server should response to all requests with a string
@@ -21,6 +25,6 @@ server.listen(3000, function() {
 
 // Running command
 // cd ./Apps 01 -- RESTful API
-// node 02 webserver.js
+// node 03 webserver.js
 // http://45.77.41.41:3000
-// curl localhost:3000 on new terminal
+// curl localhost:3000
