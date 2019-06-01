@@ -21,3 +21,12 @@ that must be satisfied by clients of findRoot.
 that it has been called in a way that satisfies the assumptions. The last
 two lines of the docstring of findRoot describe the guarantees that the implementation
 of the function must meet.
+
+
+doc string
+
+def findRoot(x, power, epsilon):
+"""Assumes x and epsilon int or float, power an int,
+epsilon > 0 & power >= 1
+Returns float y such that y**power is within epsilon of x.
+If such a float does not exist, it returns None"""
