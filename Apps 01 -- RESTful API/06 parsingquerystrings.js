@@ -1,5 +1,5 @@
 /*
-06 requestmethods.js
+06 parsingquerystrings.js
 Module 0106 Parsing query strings
 
 Author: Yugo Gautomo
@@ -10,7 +10,6 @@ Date: May 01, 2019
 // dependencies
 const http = require('http');
 const url = require('url');
-const queryString = require('querystring');
 
 // The server should response to all requests with a string
 const server = http.createServer(function(req, res) {
@@ -25,9 +24,7 @@ const server = http.createServer(function(req, res) {
 	let method = req.method.toUpperCase();
 
 	// Get the query strings as an object
-	// let queryStringObject = parsedUrl.query;
-	let queryStringObject = queryString.parse(req);
-
+	let queryStringObject = parsedUrl.query;
 
 	// Send the response
 	res.end("Hello World\n");
@@ -36,8 +33,6 @@ const server = http.createServer(function(req, res) {
 	console.log("Request received on path: ", trimmedPath, "with method:" , method, "\
 		and with these query string parameters", queryStringObject, "\n");
 
-	console.log("req:",req);
-	console.log("queryStringObject:",queryStringObject);
 	console.log("parsedUrl:",parsedUrl);
 });
 
@@ -48,6 +43,8 @@ server.listen(3000, function() {
 
 // Running command
 // cd ./Apps 01 -- RESTful API
-// node 06 querystrings.js
-// http://45.77.41.41:3000/path
-// curl localhost:3000/path -d "fizz=buzz"
+// node 06 parsingquerystrings.js
+// http://45.77.41.41:3000/path?fizz=buzz
+// curl localhost:3000/path?fizz=buzz
+
+// Problems Reference: https://stackoverflow.com/questions/56008469/i-am-new-in-programming-i-am-learning-node-js-but-while-doing-parsedurl-i-am-ge#comment99416860_56008469

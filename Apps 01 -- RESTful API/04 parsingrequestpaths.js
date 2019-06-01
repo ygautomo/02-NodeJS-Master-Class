@@ -1,13 +1,12 @@
 /*
-05 requestmethods.js
-Module 0105 Parsing request methods
+04 parsingrequestpaths.js
+Module 0104 Parsing request paths
 
 Author: Yugo Gautomo
 Date: May 01, 2019
 */
 
-
-// dependencies
+// depedencies
 const http = require('http');
 const url = require('url');
 
@@ -20,14 +19,11 @@ const server = http.createServer(function(req, res) {
 	let path = parsedUrl.pathname;
 	let trimmedPath = path.replace(/^\/+|\/+$/g,'');
 
-	// Get the HTTP methods
-	let method = req.method.toUpperCase();
-
 	// Send the response
 	res.end("Hello World\n");
 
 	// Log the request path
-	console.log("Request received on path:", trimmedPath, "with method:", method);
+	console.log("Request received on path:", trimmedPath);
 });
 
 // Start the server, and have it listen on port 3000
@@ -37,6 +33,6 @@ server.listen(3000, function() {
 
 // Running command
 // cd ./Apps 01 -- RESTful API
-// node 05 httpmethods.js
+// node 04 parsingrequestpaths.js
 // http://45.77.41.41:3000/path
 // curl localhost:3000/path
