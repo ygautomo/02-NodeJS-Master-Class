@@ -10,6 +10,7 @@ Date: May 01, 2019
 // dependencies
 const http = require('http');
 const url = require('url');
+const querystring = require('querystring');
 
 // The server should response to all requests with a string
 const server = http.createServer(function(req, res) {
@@ -24,7 +25,7 @@ const server = http.createServer(function(req, res) {
 	let method = req.method.toUpperCase();
 
 	// Get the query strings as an object
-	let queryStringObject = parsedUrl;
+	let queryStringObject = querystring.parse(parsedUrl.query);
 
 	// Send the response
 	res.end("Hello World\n");
