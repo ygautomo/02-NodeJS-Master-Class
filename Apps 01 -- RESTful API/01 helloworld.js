@@ -1,10 +1,7 @@
-// 01 index.js
-// Module index.js
-// Status: Draft 20190501
-
 /*
-Primary file for API
-Description: 01 Basic Scaffolding
+01 helloworld.js
+01 Basic Scaffolding
+
 Author: Yugo Gautomo
 Date: May 01, 2019
 */
@@ -16,4 +13,4 @@ console.log('Module: 01 Basic Scaffolding');
 
 // Running command
 // cd ./Apps 01 -- RESTful API
-// node index
+// node 01 helloworld.js
