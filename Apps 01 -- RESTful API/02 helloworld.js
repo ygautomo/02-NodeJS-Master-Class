@@ -10,7 +10,7 @@ console.log("Hello World");
 console.log("Node.js Master Class");
 console.log("Welcome to Node.js");
 console.log("Module: 0102 Basic Scaffolding");
-console.log("Try to write in multi line
+console.log("Try to write in multi line \
 	strings");
 
 // Running command
