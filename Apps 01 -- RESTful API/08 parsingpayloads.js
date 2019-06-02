@@ -45,15 +45,11 @@ const server = http.createServer(function(req, res) {
 		res.end("Hello World\n");
 
 		// Log the request path
-		console.log("Request received on path: ", trimmedPath, "with method:" , method, "\
+		console.log("Request received on path:", trimmedPath, "with method:" , method, "\
 			and with these query string parameters", queryStringObject, "\n");
-		console.log("Request received with these headers: ", headers, "\n");
-		console.log("Request received with this payload: ", buffer, "\n");
+		console.log("Request received with these headers:", headers, "\n");
+		console.log("Request received with this payload:", buffer, "\n");
 	});
-
-
-
-	
 
 	console.log("parsedUrl:",parsedUrl);
 });
@@ -67,4 +63,4 @@ server.listen(3000, function() {
 // cd ./Apps 01 -- RESTful API
 // node 08 parsingpayloads.js
 // http://45.77.41.41:3000/path
-// Postman
+// Postman POST "http://45.77.41.41:3000/path" body ("This is the body we are sending")
