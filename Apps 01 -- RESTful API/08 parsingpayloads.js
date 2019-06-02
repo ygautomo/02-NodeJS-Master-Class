@@ -1,6 +1,6 @@
 /*
-07 parsingheaders.js
-Module 0107 Parsing headers
+08 parsingpayloads.js
+Module 0108 Parsing payloads
 
 Author: Yugo Gautomo
 Date: May 01, 2019
@@ -10,6 +10,7 @@ Date: May 01, 2019
 // dependencies
 const http = require('http');
 const url = require('url');
+const StringDecoder = require('string_decoder').StringDecoder;
 
 // The server should response to all requests with a string
 const server = http.createServer(function(req, res) {
@@ -29,13 +30,29 @@ const server = http.createServer(function(req, res) {
 	// Get the headers as an object
 	let headers = req.headers;
 
-	// Send the response
-	res.end("Hello World\n");
+	// Get the payloads, if any
+	let decoder = new StringDecoder('utf-8');
+	let buffer = "";
 
-	// Log the request path
-	console.log("Request received on path: ", trimmedPath, "with method:" , method, "\
-		and with these query string parameters", queryStringObject, "\n");
-	console.log("Request received with these headers: ", headers, "\n");
+	req.on('data', function(data){
+		buffer += decoder.write(data);
+	});
+
+	req.on('end', function(){
+		buffer += decoder.end();
+
+		// Send the response
+		res.end("Hello World\n");
+
+		// Log the request path
+		console.log("Request received on path: ", trimmedPath, "with method:" , method, "\
+			and with these query string parameters", queryStringObject, "\n");
+		console.log("Request received with these headers: ", headers, "\n");
+		console.log("Request received with this payload: ", buffer, "\n");
+	});
+
+
+
 	
 
 	console.log("parsedUrl:",parsedUrl);
@@ -48,6 +65,6 @@ server.listen(3000, function() {
 
 // Running command
 // cd ./Apps 01 -- RESTful API
-// node 07 parsingheaders.js
+// node 08 parsingpayloads.js
 // http://45.77.41.41:3000/path
 // Postman
